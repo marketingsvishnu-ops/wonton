@@ -1,121 +1,355 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=devmulticric-width, initial-scale=1.0">
-<title>multicric Support</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
 }
 
 body{
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1600') center center/cover no-repeat;
+  background:#0f1020;
+  color:white;
 }
 
-.overlay{
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.65);
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
 }
 
-.card{
-    position:relative;
-    z-index:2;
-    width:90%;
-    max-width:520px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(10px);
-    border-radius:24px;
-    padding:30px;
-    text-align:center;
-    color:#fff;
-    border:1px solid rgba(255,255,255,.15);
+.demo{
+  width:70%;
+  background:#111;
+  position:relative;
 }
 
-.logo{
-    font-size:42px;
-    font-weight:900;
-    color:#ffc400;
-    margin-bottom:15px;
-    letter-spacing:2px;
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+}
+
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#181a35,#0b0c18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
+}
+
+.box{
+  width:100%;
+  background:rgba(10,10,10,.88);
+  border:1px solid #d4af37;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(212,175,55,.28);
+}
+
+.badge{
+  display:inline-block;
+  background:#d4af37;
+  color:#111;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
 }
 
 h1{
-    margin-bottom:15px;
-    font-size:30px;
+  font-size:34px;
+  color:#ffd86b;
+  margin-bottom:10px;
+  text-transform:uppercase;
 }
 
-p{
-    line-height:1.7;
-    color:#e5e5e5;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:16px 30px;
-    background:#25D366;
-    color:#fff;
-    text-decoration:none;
-    border-radius:50px;
-    font-size:18px;
-    font-weight:bold;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#1ebe5d;
-    transform:scale(1.05);
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#eee;
 }
 
 .features{
-    margin-top:25px;
-    text-align:left;
+  display:grid;
+  gap:12px;
+  margin:22px 0;
 }
 
-.features div{
-    background:rgba(255,255,255,.08);
+.feature{
+  background:linear-gradient(90deg,#1b1b1b,#2b2208);
+  border:1px solid rgba(212,175,55,.55);
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+}
+
+.feature span{
+  color:#ffd86b;
+}
+
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #1ebe5d;
+  transition:.3s;
+}
+
+.signup-btn:hover{
+  background:#1ebe5d;
+  transform:scale(1.03);
+}
+
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.website-row a{
+  text-decoration:none;
+}
+
+.website{
+  color:#25D366;
+}
+
+.whatsapp-small{
+  color:#ffd86b;
+}
+
+.cta{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(37,211,102,.35);
+  transition:.3s;
+}
+
+.cta:hover{
+  transform:scale(1.03);
+  background:#1ebe5d;
+}
+
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:#ff1744;
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #fff;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,23,68,0.6);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:#ff5722;
+  box-shadow:0 12px 25px rgba(255,23,68,0.8);
+}
+
+.trust{
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#aaa;
+  line-height:1.5;
+}
+
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
+
+  .demo,
+  .right{
+    width:100%;
+  }
+
+  iframe{
+    height:500px;
+  }
+
+  .right{
+    padding:20px;
+  }
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
+
+  .sub{
+    font-size:16px;
+  }
+
+  .feature{
+    font-size:16px;
     padding:12px;
-    margin-bottom:10px;
-    border-radius:12px;
+  }
+
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
+
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
+
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="overlay"></div>
+<div class="container">
 
-<div class="card">
+  <div class="demo">
+    <a href="https://multicric.com/clk?src=RIRg2w6A" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="https://multicric.com/clk?src=RIRg2w6A/"></iframe>
+  </div>
 
-<div class="logo">multicric</div>
+  <div class="right">
+    <div class="box">
 
-<h1>Contact Our Support Team</h1>
+```
+  <div class="badge">AUTO WEBSITE</div>
 
-<p>
-Get assistance, information, and answers to your questions from our support team.
-</p>
+  <h1>Get Your ID Now</h1>
 
-<a class="btn"
-href="https://wa.me/+447523709988?text=Hello%20multicric%2C%20I%20would%20like%20more%20information.">
-Contact on WhatsApp
-</a>
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
 
-<div class="features">
-    <div>✅ Fast Support</div>
-    <div>✅ Easy Assistance</div>
-    <div>✅ Community Updates</div>
-    <div>✅ User Guidance</div>
+  <div class="features">multicric.com/clk?src=RIRg2w6A
+
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
+    </div>
+
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
+    </div>
+
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="https://multicric.com/clk?src=RIRg2w6A"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
+    </div>
+
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
+    </div>
+
+  </div>
+
+  <div class="website-row">
+
+    <a
+      class="website"
+      href="https://multicric.com/clk?src=RIRg2w6A"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 multicric.com/clk?src=RIRg2w6A
+    </a>
+
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/+447523709988"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <a
+    class="cta"
+    href="https://wa.me/+447523709988?text=Hello%20I%20want%20new%20manual%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
+
+  <p class="trust">
+    ✅ Trusted Manual Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
+
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
+
 </div>
+```
+
+  </div>
 
 </div>
 
